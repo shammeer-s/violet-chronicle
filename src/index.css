@@ -2,41 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Developer Portfolio Design System - Dark Purple Theme */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Dark Theme */
+    --background: 240 15% 6%;
+    --foreground: 300 20% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card Components */
+    --card: 240 15% 8%;
+    --card-foreground: 300 15% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Interactive Elements */
+    --popover: 240 15% 10%;
+    --popover-foreground: 300 15% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Purple Brand Colors */
+    --primary: 270 80% 60%;
+    --primary-foreground: 300 20% 98%;
+    --primary-glow: 270 100% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary Purple Tones */
+    --secondary: 260 30% 20%;
+    --secondary-foreground: 300 15% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Elements */
+    --muted: 240 15% 15%;
+    --muted-foreground: 300 10% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent Colors */
+    --accent: 280 60% 25%;
+    --accent-foreground: 300 15% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Status Colors */
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 300 20% 98%;
+    --success: 140 60% 50%;
+    --warning: 45 90% 60%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and Inputs */
+    --border: 240 15% 20%;
+    --input: 240 15% 15%;
+    --ring: 270 80% 60%;
 
-    --radius: 0.5rem;
+    /* Design System Customization */
+    --radius: 0.75rem;
+
+    /* Purple Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 60%), hsl(290 70% 50%));
+    --gradient-secondary: linear-gradient(135deg, hsl(260 40% 15%), hsl(240 30% 20%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 15% 6%), hsl(260 25% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(240 15% 8%), hsl(260 20% 12%));
+
+    /* Purple Shadows */
+    --shadow-primary: 0 10px 40px -10px hsl(270 80% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(270 100% 75% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(240 15% 4% / 0.5);
+
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Typography Scale */
+    --font-size-hero: 3.5rem;
+    --font-size-title: 2.5rem;
+    --font-size-subtitle: 1.5rem;
+    --line-height-tight: 1.2;
+    --line-height-relaxed: 1.6;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +134,161 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  /* Custom utility classes for the design system */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-primary {
+    box-shadow: var(--shadow-primary);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .text-hero {
+    font-size: var(--font-size-hero);
+    line-height: var(--line-height-tight);
+  }
+
+  .text-title {
+    font-size: var(--font-size-title);
+    line-height: var(--line-height-tight);
+  }
+
+  .text-subtitle {
+    font-size: var(--font-size-subtitle);
+    line-height: var(--line-height-relaxed);
+  }
+
+  /* Animation keyframes */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(270 80% 60% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(270 80% 60% / 0.6);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.6s ease-out forwards;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Hover effects */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  .hover-glow:hover {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer components {
+  /* Section styling */
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-20;
+  }
+
+  .container-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Timeline styling */
+  .timeline-item {
+    @apply relative pl-8 pb-12;
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute left-0 top-2 w-4 h-4 bg-primary rounded-full shadow-glow;
+  }
+
+  .timeline-item::after {
+    content: '';
+    @apply absolute left-2 top-6 w-0.5 h-full bg-border;
+  }
+
+  .timeline-item:last-child::after {
+    @apply hidden;
   }
 }
